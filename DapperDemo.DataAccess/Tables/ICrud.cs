@@ -1,4 +1,4 @@
-﻿namespace DapperDemo.DataAccess;
+﻿namespace DapperDemo.DataAccess.Tables;
 
 public interface ICrud<T>
 {

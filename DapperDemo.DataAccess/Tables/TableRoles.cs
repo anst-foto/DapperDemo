@@ -1,6 +1,6 @@
 ﻿using DapperDemo.Model;
 
-namespace DapperDemo.DataAccess;
+namespace DapperDemo.DataAccess.Tables;
 
 public class TableRoles : BaseTable<Role>, ICrud<Role>
 {

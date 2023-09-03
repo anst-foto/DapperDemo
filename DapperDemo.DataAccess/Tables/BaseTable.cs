@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using Microsoft.Data.Sqlite;
 
-namespace DapperDemo.DataAccess;
+namespace DapperDemo.DataAccess.Tables;
 
 public abstract class BaseTable<T>
 {

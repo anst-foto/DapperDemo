@@ -1,4 +1,6 @@
-﻿namespace DapperDemo.DataAccess;
+﻿using DapperDemo.DataAccess.Tables;
+
+namespace DapperDemo.DataAccess;
 
 public class DataBase
 {
