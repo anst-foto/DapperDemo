@@ -42,10 +42,10 @@ package DataAccess {
         # Execute(sql : string) : bool        
     }
     
-    Role <.. TableRole
-    ICrud <|.. TableRole
-    BaseTable <|-- TableRole
-    class TableRole {
+    Role <.. TableRoles
+    ICrud <|.. TableRoles
+    BaseTable <|-- TableRoles
+    class TableRoles {
         + Insert (data : object) : bool
         + Update (data : object) : bool
         + Delete (data : object) : bool
@@ -53,10 +53,10 @@ package DataAccess {
         + FindById (id : int) : object
     }
     
-    Account <.. TableAccount
-    ICrud <|.. TableAccount
-    BaseTable <|-- TableAccount
-    class TableAccount {
+    Account <.. TableAccounts
+    ICrud <|.. TableAccounts
+    BaseTable <|-- TableAccounts
+    class TableAccounts {
         + Insert (data : object) : bool
         + Update (data : object) : bool
         + Delete (data : object) : bool
@@ -64,17 +64,33 @@ package DataAccess {
         + FindById (id : int) : object
     }
     
-    User <.. TableUser
-    ICrud <|.. TableUser
-    BaseTable <|-- TableUser
-    class TableUser {
+    User <.. TableUsers
+    ICrud <|.. TableUsers
+    BaseTable <|-- TableUsers
+    class TableUsers {
         + Insert (data : object) : bool
         + Update (data : object) : bool
         + Delete (data : object) : bool
         + FindSingle () : object[]
         + FindById (id : int) : object
+    }
+    
+    TableRoles <--* DataBase
+    TableAccounts <--* DataBase
+    TableUsers <--* DataBase
+    class DataBase {
+        + roles : TableRoles
+        + accounts : TableAccounts
+        + users : TableUsers
     }
 }
 
+Model <-- App
+DataAccess <-- App
+package App {
+    class Program{
+        + Main() : void
+    }
+}
 
 @enduml
