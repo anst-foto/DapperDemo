@@ -26,18 +26,18 @@ package Model {
 
 Model <-- DataAccess
 package DataAccess {
-    interface ICrud {
-        + {abstract} Insert (data : object) : bool
-        + {abstract} Update (data : object) : bool
-        + {abstract} Delete (data : object) : bool
-        + {abstract} FindAll () : object[]
-        + {abstract} FindById (id : int) : object
+    interface ICrud<<T>> {
+        + {abstract} Insert (data : T) : bool
+        + {abstract} Update (data : T) : bool
+        + {abstract} Delete (data : T) : bool
+        + {abstract} FindAll () : T[]
+        + {abstract} FindById (id : int) : T
     }
     
-    class BaseTable {
+    class BaseTable<<T>> {
         # db : DbConnection
         + BaseTable(connection : string)
-        + ExecuteWithResult(sql : string) : object        
+        + ExecuteWithResult(sql : string) : T[]        
         + ExecuteWithNotResult(sql : string) : bool        
     }
     
