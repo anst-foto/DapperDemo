@@ -7,4 +7,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\DapperDemo.DataAccess\DapperDemo.DataAccess.csproj" />
+      <ProjectReference Include="..\DapperDemo.Model\DapperDemo.Model.csproj" />
+    </ItemGroup>
+
 </Project>
