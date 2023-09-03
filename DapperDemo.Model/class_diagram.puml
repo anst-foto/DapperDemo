@@ -30,15 +30,16 @@ package DataAccess {
         + {abstract} Insert (data : T) : bool
         + {abstract} Update (data : T) : bool
         + {abstract} Delete (data : T) : bool
-        + {abstract} FindAll () : T[]
+        + {abstract} FindSingle () : T[]
         + {abstract} FindById (id : int) : T
     }
     
-    class BaseTable<<T>> {
-        # db : DbConnection
-        + BaseTable(connection : string)
-        + ExecuteWithResult(sql : string) : T[]        
-        + ExecuteWithNotResult(sql : string) : bool        
+    abstract class BaseTable<<T>> {
+        - db : DbConnection
+        # BaseTable(connection : string)
+        # FindAll(sql : string) : T[]        
+        # FindSingle(sql : string) : T        
+        # Execute(sql : string) : bool        
     }
     
     Role <.. TableRole
@@ -48,7 +49,7 @@ package DataAccess {
         + Insert (data : object) : bool
         + Update (data : object) : bool
         + Delete (data : object) : bool
-        + FindAll () : object[]
+        + FindSingle () : object[]
         + FindById (id : int) : object
     }
     
@@ -59,7 +60,7 @@ package DataAccess {
         + Insert (data : object) : bool
         + Update (data : object) : bool
         + Delete (data : object) : bool
-        + FindAll () : object[]
+        + FindSingle () : object[]
         + FindById (id : int) : object
     }
     
@@ -70,7 +71,7 @@ package DataAccess {
         + Insert (data : object) : bool
         + Update (data : object) : bool
         + Delete (data : object) : bool
-        + FindAll () : object[]
+        + FindSingle () : object[]
         + FindById (id : int) : object
     }
 }

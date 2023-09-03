@@ -3,34 +3,45 @@ using Microsoft.Data.Sqlite;
 
 namespace DapperDemo.DataAccess;
 
-public class BaseTable<T>
+public abstract class BaseTable<T>
 {
-    protected readonly SqliteConnection Db;
+    private readonly SqliteConnection _db;
 
-    public BaseTable(string connectionString)
+    protected BaseTable(string connectionString)
     {
-        Db = new SqliteConnection(connectionString);
+        _db = new SqliteConnection(connectionString);
     }
 
-    protected IEnumerable<T>? ExecuteWithResult(string sql)
+    protected IEnumerable<T>? FindAll(string sql)
     {
-        Db.Open();
+        _db.Open();
 
-        var result = Db.Query<T>(sql);
+        var result = _db.Query<T>(sql);
         
-        Db.Close();
+        _db.Close();
 
         return result;
     }
 
-    protected bool ExecuteWithNotResult(string sql)
+    protected bool Execute(string sql)
     {
-        Db.Open();
+        _db.Open();
 
-        var result = Db.Execute(sql);
+        var result = _db.Execute(sql);
         
-        Db.Close();
+        _db.Close();
 
         return result != 0;
+    }
+
+    protected T? FindSingle(string sql)
+    {
+        _db.Open();
+
+        var result = _db.QuerySingleOrDefault<T>(sql);
+        
+        _db.Close();
+
+        return result;
     }
 }
