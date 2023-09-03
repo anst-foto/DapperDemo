@@ -1,0 +1,79 @@
+﻿@startuml
+'https://plantuml.com/class-diagram
+package Model {
+    class Role {
+        + id : int
+        + name : string
+    }
+    
+    Role <--* Account
+    class Account {
+        + id : int
+        + login : string
+        + password : string
+        + role : Role
+        + is_active : bool
+    }
+    
+    Account <-- User
+    class User {
+        + id : int
+        + first_name : string
+        + last_name : string
+        + email : string
+    }
+}
+
+Model <-- DataAccess
+package DataAccess {
+    interface ICrud {
+        + {abstract} Insert (data : object) : bool
+        + {abstract} Update (data : object) : bool
+        + {abstract} Delete (data : object) : bool
+        + {abstract} FindAll () : object[]
+        + {abstract} FindById (id : int) : object
+    }
+    
+    class BaseTable {
+        # db : DbConnection
+        + BaseTable(connection : string)
+        + ExecuteWithResult(sql : string) : object        
+        + ExecuteWithNotResult(sql : string) : bool        
+    }
+    
+    Role <.. TableRole
+    ICrud <|.. TableRole
+    BaseTable <|-- TableRole
+    class TableRole {
+        + Insert (data : object) : bool
+        + Update (data : object) : bool
+        + Delete (data : object) : bool
+        + FindAll () : object[]
+        + FindById (id : int) : object
+    }
+    
+    Account <.. TableAccount
+    ICrud <|.. TableAccount
+    BaseTable <|-- TableAccount
+    class TableAccount {
+        + Insert (data : object) : bool
+        + Update (data : object) : bool
+        + Delete (data : object) : bool
+        + FindAll () : object[]
+        + FindById (id : int) : object
+    }
+    
+    User <.. TableUser
+    ICrud <|.. TableUser
+    BaseTable <|-- TableUser
+    class TableUser {
+        + Insert (data : object) : bool
+        + Update (data : object) : bool
+        + Delete (data : object) : bool
+        + FindAll () : object[]
+        + FindById (id : int) : object
+    }
+}
+
+
+@enduml
