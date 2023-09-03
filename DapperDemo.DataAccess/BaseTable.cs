@@ -10,6 +10,7 @@ public abstract class BaseTable<T>
     protected BaseTable(string connectionString)
     {
         _db = new SqliteConnection(connectionString);
+        Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
     }
 
     protected IEnumerable<T>? FindAll(string sql)
