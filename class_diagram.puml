@@ -88,9 +88,25 @@ package DataAccess {
 Model <-- App
 DataAccess <-- App
 package App {
-    class Program{
+    class CLI {
+        - {static} Print(message : string, color : ConsoleColor) : void
+        - {static} PrintLine(message : string, color : ConsoleColor) : void
+        - {static} Input(message : string) : string
+            
+        + {static} InputString(message : string) : string
+        + {static} InputNumber(message : string) : int
+            
+        + {static} PrintError(message : string) : void
+        + {static} PrintInfo(message : string) : void
+    }
+    
+    DataBase <.. Program
+    CLI <-- Program
+    class Program {
         + Main() : void
     }
+    
+    
 }
 
 @enduml
