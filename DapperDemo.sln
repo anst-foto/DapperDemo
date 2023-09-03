@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperDemo.App", "DapperDem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperDemo.Model", "DapperDemo.Model\DapperDemo.Model.csproj", "{B898CD8D-5D55-4F6B-AAD1-BE00140D5A95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperDemo.DataAccess", "DapperDemo.DataAccess\DapperDemo.DataAccess.csproj", "{3FA2C84F-4C7D-4AB3-846E-807AEAAAF1DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{B898CD8D-5D55-4F6B-AAD1-BE00140D5A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B898CD8D-5D55-4F6B-AAD1-BE00140D5A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B898CD8D-5D55-4F6B-AAD1-BE00140D5A95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FA2C84F-4C7D-4AB3-846E-807AEAAAF1DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FA2C84F-4C7D-4AB3-846E-807AEAAAF1DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FA2C84F-4C7D-4AB3-846E-807AEAAAF1DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FA2C84F-4C7D-4AB3-846E-807AEAAAF1DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
